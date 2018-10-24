@@ -16,9 +16,8 @@
 	<a href="authenticated.jsp"> for authenticated users</a>
 	<br />
 	<a href="admin/Admin.jsp"> for Admin user only</a>
-	<br /> username:test
-	<br /> password:test
-	<br />
+	<br /> token:321  ==> admin
+ 	<br /> token:000  ==> just authenticated
 	
 	
 	<sec:authorize access="isAuthenticated()">

@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	 welcome this is my login page
+	 welcome this is my login page .. please enter the token
 	 
-	 <form action="login" method="post"> 
-	 	username <input name="username"><br/>
-	 	password <input type="password" name="password">
+	 <form action="login" method="post">
+	 	token <input name="token"><br/>
+	 	 
 	 	<input type="submit"></input>
 	 	
 	 </form>
