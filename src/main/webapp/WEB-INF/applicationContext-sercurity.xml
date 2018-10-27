@@ -10,7 +10,7 @@
 		<security:intercept-url pattern="/admin/*"
 			access="hasRole('ADMIN')" />
 			
-		<security:intercept-url  pattern="/forAll*"  access="permitAll"/>
+		<security:intercept-url  pattern="/forAll*"  access="permitAll" requires-channel="https"/>
 		
 		<security:intercept-url  pattern="/authenticated*"  access="isAuthenticated()"/>
 		
@@ -20,32 +20,16 @@
 	</security:http>
 
 
-	<security:authentication-manager
-		alias="authenticationManager">
-		<security:authentication-provider
-			user-service-ref="customUserService">
-			<security:password-encoder ref="encoder"></security:password-encoder>
-		</security:authentication-provider>
-
-
+	<security:authentication-manager>
+	
+		 <security:ldap-authentication-provider    server-ref="ldapServer" user-search-base="ou=users" group-search-base="ou=groups" group-search-filter="(uniqueMember={0})" user-search-filter="(uid={0})" role-prefix=""  />
+ 
 	</security:authentication-manager>
+	
+	<security:ldap-server  id="ldapServer" url="ldap://127.0.0.1/dc=eltaieb,dc=com" manager-dn="uid=admin,ou=system"  manager-password="secret"/>
+ 
 
-
-	<bean id="grantedAuthorityDefaults"
-		class="org.springframework.security.config.core.GrantedAuthorityDefaults">
-		<constructor-arg value="" />
-
-	</bean>
-
-	<bean id="customUserService"
-		class="com.sample.spring.security.CustomUserDetailsService">
-
-	</bean>
-
-	<bean id="encoder" class="com.sample.spring.security.CustomPasswordEncoder">
-	</bean>
-
-
+ 
 
 </beans>
   

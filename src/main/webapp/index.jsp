@@ -16,16 +16,14 @@
 	<a href="authenticated.jsp"> for authenticated users</a>
 	<br />
 	<a href="admin/Admin.jsp"> for Admin user only</a>
-	<br /> username:test
-	<br /> password:test
-	<br />
-	
+ 	
 	
 	<sec:authorize access="isAuthenticated()">
 		<a href="logout">logout</a>
 	</sec:authorize>
 	<br/>
 	
+ 	
 
 
 
